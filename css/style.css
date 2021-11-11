@@ -128,11 +128,15 @@ body.lock {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: -webkit-transform 0.3s ease 0s;
+  transition: -webkit-transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
   padding: 25px 0;
   position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 
 .menu__list ul {
@@ -975,8 +979,9 @@ body.lock {
     z-index: 100;
     width: 100%;
     height: 100vh;
-    top: 0;
-    right: -100%;
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
@@ -985,7 +990,9 @@ body.lock {
   }
 
   .menu__list.active {
-    right: 0;
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px);
   }
 
   .menu__list::before {
@@ -1068,21 +1075,27 @@ body.lock {
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    top: calc(50% - 1px);
-    left: 0px;
     position: absolute;
     width: 100%;
     height: 2px;
     background-color: #fff;
+    left: 0px;
+    top: calc(50% - 1px);
   }
 
   .menu__icon span:first-child {
     top: 0px;
+    -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
   }
 
   .menu__icon span:last-child {
     top: auto;
     bottom: 0px;
+    -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+            transform: translateY(0px);
   }
 
   .menu__icon.active span {
@@ -1092,17 +1105,15 @@ body.lock {
   }
 
   .menu__icon.active span:first-child {
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    top: calc(50% - 1px);
+    -webkit-transform: rotate(45deg) translate(6px, 6px);
+        -ms-transform: rotate(45deg) translate(6px, 6px);
+            transform: rotate(45deg) translate(6px, 6px);
   }
 
   .menu__icon.active span:last-child {
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-    bottom: calc(50% - 1px);
+    -webkit-transform: rotate(-45deg) translate(5px, -6px);
+        -ms-transform: rotate(-45deg) translate(5px, -6px);
+            transform: rotate(-45deg) translate(5px, -6px);
   }
 
   .main__body {
